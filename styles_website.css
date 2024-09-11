@@ -29,6 +29,7 @@ header {
     margin: 5px 0;
     transition: all 0.3s ease;
 }
+
 .hamburger.active div:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -42,8 +43,13 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-    .hamburger {
-        display: block;
+    header {
+        padding: 15px;
+        position: relative;
+    }
+
+    .logo img {
+        height: 40px; /* Reduced logo size on mobile */
     }
 
     nav {
@@ -62,29 +68,6 @@ header {
         display: block;
     }
 
-@media screen and (max-width: 768px) {
-    header {
-        padding: 15px;
-    }
-
-    .logo img {
-        height: 40px; /* Further reduce logo size on mobile if needed */
-    }
-
-    nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    nav.active {
-        display: block;
-    }
-
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -97,53 +80,14 @@ header {
 
     .hamburger {
         display: block;
-        right: 15px; /* Adjust this value as needed */
-    }
-
-    .btn-trial {
-        display: none;
-    }
-}
-
-/* Mobile styles */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 20px;
-        position: relative;
-    }
-
-    nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    nav.active {
-        display: block;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .hamburger {
-        display: block;
+        right: 15px; /* Adjusted position */
     }
 
     .btn-trial {
         display: none;
     }
 
-    /* Adjusting other mobile styles */
+    /* Other mobile styles */
     .hero {
         flex-direction: column;
         padding: 20px;
@@ -170,6 +114,7 @@ header {
     .premium-learning-container {
         flex-direction: column;
     }
+
 }
 body, html {
             margin: 0;
