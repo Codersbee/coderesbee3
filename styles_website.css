@@ -52,18 +52,18 @@ header {
         height: 40px; /* Reduced logo size on mobile */
     }
 
-    nav {
+   nav {
         display: none;
         position: fixed;
-        top: 70px;
+        top: 70px; /* Adjust this value to match your header height */
         left: 0;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 70px); /* Full viewport height minus header height */
         background-color: #ffffff;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        overflow-y: auto;
+        overflow-y: auto; /* Makes the menu scrollable */
+        z-index: 1000; /* Ensure it's above other content */
     }
-
     nav.active {
         display: block;
     }
@@ -71,16 +71,20 @@ header {
     nav ul {
         flex-direction: column;
         align-items: center;
-        padding: 0;
+        padding: 20px 0;
     }
 
     nav ul li {
         margin: 10px 0;
+        width: 100%;
+        text-align: center;
     }
-
-    .hamburger {
+     .hamburger {
         display: block;
-        right: 15px; /* Adjusted position */
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 1001; /* Above the nav menu */
     }
 
     .btn-trial {
@@ -88,6 +92,18 @@ header {
     }
 
     /* Other mobile styles */
+    body.menu-active {
+        overflow: hidden; /* Prevent scrolling of background content */
+    }
+
+    body.menu-active .cream-background,
+    body.menu-active .hero,
+    body.menu-active .feature-container,
+    body.menu-active .premium-learning-wrapper {
+        filter: blur(5px);
+        pointer-events: none;
+    }
+}
     .hero {
         flex-direction: column;
         padding: 20px;
