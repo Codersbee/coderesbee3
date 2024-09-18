@@ -546,11 +546,16 @@ nav ul li:hover .dropdown-content {
     }
 
     nav {
-        display: none;
+       /* display: none; */
         position: fixed;
+        right:-100%;
         top: 70px;
         left: 0;
         width: 100%;
+        flex-direction:column;
+        align-items:center;
+        display:flex;
+        transition: right 0.5s ease;
         height: calc(100vh - 70px);
         background-color: #ffffff;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -559,6 +564,7 @@ nav ul li:hover .dropdown-content {
     }
 
     nav.active {
+        
         display: block;
     }
 
