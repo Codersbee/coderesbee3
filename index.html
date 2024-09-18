@@ -151,47 +151,40 @@
 </div>
 <div class="testimonials-outer-container">
   <div class="testimonials-container">
-    <div class="testimonial-card">
-      <div class="icon">★</div>
-      <p class="testimonial-text">I have been quite pleased with the experience with Unnati Pinto, who is teaching my 1st grader. My child has shown a lot of enthusiasm for math since being in your class, and I attribute this to your creative approach. Additionally, I've noticed your effective communication with the students. This is especially important at this age.</p>
-      <p class="testimonial-author">— SWAPNA POLIPARTHI</p>
-    </div>
-    <div class="testimonial-card">
-      <div class="icon">★</div>
-      <p class="testimonial-text">My son Veer really enjoys his Codeyoung Math classes with Zuha. She is lively, engaged and puts in lots of effort to make sure my son is learning :) She is lovely!</p>
-      <p class="testimonial-author">— DILDEEP KAPOOR</p>
-    </div>
-    <div class="testimonial-card">
-      <div class="icon">G</div>
-      <p class="testimonial-text">It is good experience with Codeyoung with our kids. Mentors are very good and understanding. Their online chat help is also very responsive and prompt. I would highly recommend Codeyoung for parents who want to provide extra support in their kids education.</p>
-      <p class="testimonial-author">— SAMUEL ROBINSON</p>
+    <div class="testimonials-wrapper">
+      <div class="testimonial-card">
+        <div class="icon">★</div>
+        <p class="testimonial-text">I have been quite pleased with the experience with Unnati Pinto, who is teaching my 1st grader. My child has shown a lot of enthusiasm for math since being in your class, and I attribute this to your creative approach. Additionally, I've noticed your effective communication with the students. This is especially important at this age.</p>
+        <p class="testimonial-author">— SWAPNA POLIPARTHI</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="icon">★</div>
+        <p class="testimonial-text">My son Veer really enjoys his Codeyoung Math classes with Zuha. She is lively, engaged and puts in lots of effort to make sure my son is learning :) She is lovely!</p>
+        <p class="testimonial-author">— DILDEEP KAPOOR</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="icon">G</div>
+        <p class="testimonial-text">It is good experience with Codeyoung with our kids. Mentors are very good and understanding. Their online chat help is also very responsive and prompt. I would highly recommend Codeyoung for parents who want to provide extra support in their kids education.</p>
+        <p class="testimonial-author">— SAMUEL ROBINSON</p>
+      </div>
     </div>
   </div>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Testimonial carousel code
     const container = document.querySelector('.testimonials-container');
-    const wrapper = document.createElement('div');
-    wrapper.className = 'testimonials-wrapper';
+    const wrapper = document.querySelector('.testimonials-wrapper');
     const cards = document.querySelectorAll('.testimonial-card');
-    
-    cards.forEach(card => wrapper.appendChild(card));
-    container.appendChild(wrapper);
     
     let currentIndex = 0;
     const totalCards = cards.length;
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const carouselSpeed = isMobile ? 1200 : 3000;
     
-    // function showNextTestimonial() {
-    //     currentIndex = (currentIndex + 1) % totalCards;
-    //     wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-    // }
     function showNextTestimonial() {
-    currentIndex = (currentIndex + 1) % totalCards;
-    wrapper.style.transform = `translateX(-${currentIndex * 33.333}%)`;
-}
+        currentIndex = (currentIndex + 1) % totalCards;
+        wrapper.style.transform = `translateX(-${currentIndex * 33.333}%)`;
+    }
     
     let carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
     
@@ -202,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
     container.addEventListener('mouseleave', () => {
         if (!isMobile) carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
     });
-
+});
     // Hamburger menu code
     
     
