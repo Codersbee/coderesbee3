@@ -471,7 +471,7 @@ nav ul li:hover .dropdown-content {
 .testimonials-container {
     position: relative;
     width: 100%;
-    max-width: 900px;
+    width: 900px;
     margin: 100px auto;
     overflow: hidden;
     background-color: #FFF9E6;
@@ -484,13 +484,18 @@ nav ul li:hover .dropdown-content {
 .testimonials-wrapper {
     display: flex;
     transition: transform 0.5s ease;
-    width: 120%;
+    width:90%;
 }
 
 .testimonial-card {
-    flex: 0 0 33.333%; /* Adjust based on the number of testimonials */
+    flex: 0 0 100%;
+    background-color: #FFF5E1;
+    border-radius: 15px;
     padding: 20px;
-    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-top: 100px;
+    width: 400px;
 }
 
 .icon {
@@ -647,11 +652,18 @@ nav ul li:hover .dropdown-content {
     .testimonials-container {
         width: 100%;
         padding: 10px;
+           margin: 50px auto;
     }
+        .testimonials-wrapper {
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
 
     .testimonial-card {
         width: 100%;
         margin-top: 50px;
+                flex: 0 0 100%;
     }
 
     #free {
