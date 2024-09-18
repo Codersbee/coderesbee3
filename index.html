@@ -184,10 +184,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const carouselSpeed = isMobile ? 1200 : 3000;
     
+    // function showNextTestimonial() {
+    //     currentIndex = (currentIndex + 1) % totalCards;
+    //     wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // }
     function showNextTestimonial() {
-        currentIndex = (currentIndex + 1) % totalCards;
-        wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+    currentIndex = (currentIndex + 1) % totalCards;
+    wrapper.style.transform = `translateX(-${currentIndex * 33.333}%)`;
+}
     
     let carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
     
