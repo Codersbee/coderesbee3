@@ -226,13 +226,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close menu when clicking a nav item
-    // nav.addEventListener('click', function(event) {
-    //     if (event.target.tagName === 'A') {
-    //         nav.classList.remove('active');
-    //         hamburger.classList.remove('active');
-    //         body.classList.remove('menu-active');
-    //     }
-    // });
+    nav.addEventListener('click', function(event) {
+        if (event.target.tagName === 'A') {
+            nav.classList.remove('active');
+            hamburger.classList.remove('active');
+            body.classList.remove('menu-active');
+        }
+    });
     const navItems = document.querySelectorAll('nav ul li a');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
