@@ -598,7 +598,7 @@ nav ul li:hover .dropdown-content {
         position: fixed;
         top: 15px;
         right: 15px;
-        z-index: 1000;
+        z-index: 1001;
     }
 
     .btn-trial {
@@ -678,8 +678,24 @@ nav ul li:hover .dropdown-content {
 }
 
 /* Hamburger menu animation */
+
+    .hamburger.active .bar1
+
+    {
+        transform:rotate(-45deg) translate (-5px, 6px);
+    }
+    .hamburger.active .bar2
+
+    {
+        opacity:0;
+    }
+    .hamburger.active .bar3
+
+    {
+        transform:rotate(-45deg) translate (-5px, 6px);
+    }
 .hamburger.active div:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(45deg) translate(-5px, 6px);
 }
 
 .hamburger.active div:nth-child(2) {
