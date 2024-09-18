@@ -678,7 +678,7 @@ nav ul li:hover .dropdown-content {
 
 /* Hamburger menu animation */
 
-/*     .hamburger.active .bar1 {
+  .hamburger.active .bar1 {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
 .hamburger.active .bar2 {
@@ -686,7 +686,7 @@ nav ul li:hover .dropdown-content {
 }
 .hamburger.active .bar3 {
     transform: rotate(45deg) translate(-5px, -6px);
-} */
+} 
 .hamburger.active div:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
