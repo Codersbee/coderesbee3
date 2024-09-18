@@ -468,11 +468,15 @@ nav ul li:hover .dropdown-content {
     width: 200px;
 }
 
+.testimonials-outer-container {
+    width: 100%;
+    overflow: hidden;
+}
+
 .testimonials-container {
-    position: relative;
     width: 90%;
     max-width: 900px;
-    margin: 100px auto;
+    margin: 50px auto;
     overflow: hidden;
     background-color: #FFF9E6;
     border-radius: 20px;
@@ -488,9 +492,6 @@ nav ul li:hover .dropdown-content {
     flex-shrink: 0;
     padding: 20px;
     box-sizing: border-box;
-    background-color: #FFF5E1;
-    border-radius: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .icon {
@@ -511,8 +512,8 @@ nav ul li:hover .dropdown-content {
     color: #333;
     text-align: right;
     margin-bottom: 0;
-
 }
+
 /* Hamburger menu styles */
 .hamburger {
     display: none;
@@ -642,18 +643,15 @@ nav ul li:hover .dropdown-content {
     }
 
     
-    .testimonials-container {
+     .testimonials-container {
         width: 95%;
-        margin: 50px auto;
         padding: 10px;
-        overflow: hidden;
     }
 
     .testimonial-card {
         padding: 10px;
-         flex-shrink: 0;
     }
- 
+
 
 .testimonials-wrapper {
     display: flex;
