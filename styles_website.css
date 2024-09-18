@@ -611,9 +611,9 @@ nav ul li:hover .dropdown-content {
         display:none;
         box-shadow:none;
     }
-    nan ul li:hover .dropdown-content
-    {
-        display:block;
+  nav ul li:hover .dropdown-content {
+        display: block;
+    }
 
     .hero {
         flex-direction: column;
