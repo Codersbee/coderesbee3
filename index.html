@@ -169,87 +169,67 @@
   </div>
 </div>
 <script>
-       const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav');
-
-hamburger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-});
 document.addEventListener('DOMContentLoaded', function() {
-  const container = document.querySelector('.testimonials-container');
-  const wrapper = document.createElement('div');
-  wrapper.className = 'testimonials-wrapper';
-  const cards = document.querySelectorAll('.testimonial-card');
+    // Testimonial carousel code
+    const container = document.querySelector('.testimonials-container');
+    const wrapper = document.createElement('div');
+    wrapper.className = 'testimonials-wrapper';
+    const cards = document.querySelectorAll('.testimonial-card');
+    
+    cards.forEach(card => wrapper.appendChild(card));
+    container.appendChild(wrapper);
+    
+    let currentIndex = 0;
+    const totalCards = cards.length;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const carouselSpeed = isMobile ? 1200 : 3000;
+    
+    function showNextTestimonial() {
+        currentIndex = (currentIndex + 1) % totalCards;
+        wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    
+    let carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
+    
+    container.addEventListener('mouseenter', () => {
+        if (!isMobile) clearInterval(carouselInterval);
+    });
+    
+    container.addEventListener('mouseleave', () => {
+        if (!isMobile) carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
+    });
 
-  // Wrap testimonials in the new wrapper
-  cards.forEach(card => wrapper.appendChild(card));
-  container.appendChild(wrapper);
-
-  let currentIndex = 0;
-  const totalCards = cards.length;
-
-  // Function to check if the user is on a mobile device
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-  // Set speed intervals for desktop and mobile
-  const desktopSpeed = 3000; // 3 seconds for desktop
-  const mobileSpeed = 1200;  // 1.5 seconds for mobile
-  const carouselSpeed = isMobile ? mobileSpeed : desktopSpeed;
-
-  function showNextTestimonial() {
-    currentIndex = (currentIndex + 1) % totalCards; // Increment index, loop back to start
-    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`; // Slide to the next card
-  }
-
-  // Automatically switch testimonials based on the detected speed
-  let carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
-
-  // Pause the carousel on hover for desktop
-  container.addEventListener('mouseenter', () => {
-    if (!isMobile) clearInterval(carouselInterval);
-  });
-
-  container.addEventListener('mouseleave', () => {
-    if (!isMobile) carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
+    // Hamburger menu code
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
     const body = document.body;
 
-    hamburger.addEventListener('click', function() {
+    function toggleMenu() {
         nav.classList.toggle('active');
         hamburger.classList.toggle('active');
-        // body.classList.toggle('menu-active');
-    });
+        body.classList.toggle('menu-active');
+    }
 
-    // Close menu when clicking a nav item
+    function closeMenu() {
+        nav.classList.remove('active');
+        hamburger.classList.remove('active');
+        body.classList.remove('menu-active');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
     nav.addEventListener('click', function(event) {
         if (event.target.tagName === 'A') {
-            nav.classList.remove('active');
-            hamburger.classList.remove('active');
-            body.classList.remove('menu-active');
+            closeMenu();
         }
     });
-    const navItems = document.querySelectorAll('nav ul li a');
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            nav.classList.remove('active');
-        });
 
-    // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         const isClickInside = nav.contains(event.target) || hamburger.contains(event.target);
         if (!isClickInside && nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            hamburger.classList.remove('active');
-            body.classList.remove('menu-active');
+            closeMenu();
         }
     });
 });
-    </script>
 </body>
 </html>
