@@ -186,139 +186,15 @@ document.addEventListener('DOMContentLoaded', function() {
         isMobile = window.matchMedia("(max-width: 768px)").matches;
         carouselSpeed = isMobile ? 1200 : 3000;
         
-        if (isMobile) {
-            wrapper.style.width = `${totalCards * 100}%`;
-            cards.forEach(card => card.style.width = `${100 / totalCards}%`);
-        } else {
-            wrapper.style.width = '300%';
-            cards.forEach(card => card.style.width = '33.333%');
-        }
-        console.log('Layout updated. isMobile:', isMobile);
-    }
-
-    function showNextTestimonial() {
-        currentIndex = (currentIndex + 1) % totalCards;
-        const movePercent = isMobile ? (100 / totalCards) : 33.333;
-        wrapper.style.transform = `translateX(-${currentIndex * movePercent}%)`;
-        console.log('Moving to index:', currentIndex);
-    }
-    
-    function startCarousel() {
-        if (carouselInterval) {
-            clearInterval(carouselInterval);
-        }
-        carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
-        console.log('Carousel started with speed:', carouselSpeed);
-    }
-    
-    container.addEventListener('mouseenter', () => {
-        if (!isMobile) {
-            clearInterval(carouselInterval);
-            console.log('Carousel paused');
-        }
-    });
-    
-    container.addEventListener('mouseleave', () => {
-        if (!isMobile) {
-            startCarousel();
-        }
-    });
-
-    window.addEventListener('resize', () => {
-        updateLayout();
-        startCarousel();
-    });
-
-    updateLayout(); // Initial layout setup
-    startCarousel(); // Start the carousel
-});document.addEventListener('DOMContentLoaded', function() {
-    const container = document.querySelector('.testimonials-container');
-    const wrapper = document.querySelector('.testimonials-wrapper');
-    const cards = document.querySelectorAll('.testimonial-card');
-    
-    let currentIndex = 0;
-    const totalCards = cards.length;
-    let isMobile = window.matchMedia("(max-width: 768px)").matches;
-    let carouselSpeed = isMobile ? 1200 : 3000;
-    let carouselInterval;
-    
-    function updateLayout() {
-        isMobile = window.matchMedia("(max-width: 768px)").matches;
-        carouselSpeed = isMobile ? 1200 : 3000;
+        wrapper.style.width = `${totalCards * 100}%`;
+        cards.forEach(card => card.style.width = `${100 / totalCards}%`);
         
-        if (isMobile) {
-            wrapper.style.width = `${totalCards * 100}%`;
-            cards.forEach(card => card.style.width = `${100 / totalCards}%`);
-        } else {
-            wrapper.style.width = '300%';
-            cards.forEach(card => card.style.width = '33.333%');
-        }
         console.log('Layout updated. isMobile:', isMobile);
     }
 
     function showNextTestimonial() {
         currentIndex = (currentIndex + 1) % totalCards;
-        const movePercent = isMobile ? (100 / totalCards) : 33.333;
-        wrapper.style.transform = `translateX(-${currentIndex * movePercent}%)`;
-        console.log('Moving to index:', currentIndex);
-    }
-    
-    function startCarousel() {
-        if (carouselInterval) {
-            clearInterval(carouselInterval);
-        }
-        carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
-        console.log('Carousel started with speed:', carouselSpeed);
-    }
-    
-    container.addEventListener('mouseenter', () => {
-        if (!isMobile) {
-            clearInterval(carouselInterval);
-            console.log('Carousel paused');
-        }
-    });
-    
-    container.addEventListener('mouseleave', () => {
-        if (!isMobile) {
-            startCarousel();
-        }
-    });
-
-    window.addEventListener('resize', () => {
-        updateLayout();
-        startCarousel();
-    });
-
-    updateLayout(); // Initial layout setup
-    startCarousel(); // Start the carousel
-});document.addEventListener('DOMContentLoaded', function() {
-    const container = document.querySelector('.testimonials-container');
-    const wrapper = document.querySelector('.testimonials-wrapper');
-    const cards = document.querySelectorAll('.testimonial-card');
-    
-    let currentIndex = 0;
-    const totalCards = cards.length;
-    let isMobile = window.matchMedia("(max-width: 768px)").matches;
-    let carouselSpeed = isMobile ? 1200 : 3000;
-    let carouselInterval;
-    
-    function updateLayout() {
-        isMobile = window.matchMedia("(max-width: 768px)").matches;
-        carouselSpeed = isMobile ? 1200 : 3000;
-        
-        if (isMobile) {
-            wrapper.style.width = `${totalCards * 100}%`;
-            cards.forEach(card => card.style.width = `${100 / totalCards}%`);
-        } else {
-            wrapper.style.width = '300%';
-            cards.forEach(card => card.style.width = '33.333%');
-        }
-        console.log('Layout updated. isMobile:', isMobile);
-    }
-
-    function showNextTestimonial() {
-        currentIndex = (currentIndex + 1) % totalCards;
-        const movePercent = isMobile ? (100 / totalCards) : 33.333;
+        const movePercent = 100 / totalCards;
         wrapper.style.transform = `translateX(-${currentIndex * movePercent}%)`;
         console.log('Moving to index:', currentIndex);
     }
