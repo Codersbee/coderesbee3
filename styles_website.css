@@ -501,6 +501,7 @@ nav ul li:hover .dropdown-content {
     flex-direction: column;
     justify-content: space-between;
 }
+
 .icon {
     position: absolute;
     top: 15px;
