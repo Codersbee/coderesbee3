@@ -482,11 +482,10 @@ nav ul li:hover .dropdown-content {
 .testimonials-wrapper {
     display: flex;
     transition: transform 0.5s ease;
-    width: 300%; /* 100% for each card */
 }
 
 .testimonial-card {
-    flex: 0 0 33.333%; /* Each card takes 1/3 of the wrapper width */
+    flex-shrink: 0;
     padding: 20px;
     box-sizing: border-box;
     background-color: #FFF5E1;
@@ -512,6 +511,7 @@ nav ul li:hover .dropdown-content {
     color: #333;
     text-align: right;
     margin-bottom: 0;
+
 }
 /* Hamburger menu styles */
 .hamburger {
@@ -641,21 +641,16 @@ nav ul li:hover .dropdown-content {
         max-height: 300px;
     }
 
-   .testimonials-container {
+    
+    .testimonials-container {
         width: 95%;
         margin: 50px auto;
         padding: 10px;
     }
 
-    .testimonials-wrapper {
-        width: 300%; /* Keep this the same for mobile */
-    }
-
     .testimonial-card {
-        flex: 0 0 33.333%; /* Keep this the same for mobile */
         padding: 10px;
     }
- 
  
 
 
