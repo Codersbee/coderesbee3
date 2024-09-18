@@ -172,100 +172,19 @@
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const container = document.querySelector('.testimonials-container');
     const wrapper = document.querySelector('.testimonials-wrapper');
     const cards = document.querySelectorAll('.testimonial-card');
     
     let currentIndex = 0;
     const totalCards = cards.length;
-    let isMobile = window.matchMedia("(max-width: 768px)").matches;
-    let carouselSpeed = isMobile ? 1200 : 3000;
-    let carouselInterval;
-    
-    function updateLayout() {
-        isMobile = window.matchMedia("(max-width: 768px)").matches;
-        carouselSpeed = isMobile ? 1200 : 3000;
-        
-        wrapper.style.width = `${totalCards * 100}%`;
-        cards.forEach(card => card.style.width = `${100 / totalCards}%`);
-        
-        console.log('Layout updated. isMobile:', isMobile);
-    }
 
     function showNextTestimonial() {
         currentIndex = (currentIndex + 1) % totalCards;
-        const movePercent = 100 / totalCards;
-        wrapper.style.transform = `translateX(-${currentIndex * movePercent}%)`;
+        wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
         console.log('Moving to index:', currentIndex);
     }
     
-    function startCarousel() {
-        if (carouselInterval) {
-            clearInterval(carouselInterval);
-        }
-        carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
-        console.log('Carousel started with speed:', carouselSpeed);
-    }
-    
-    container.addEventListener('mouseenter', () => {
-        if (!isMobile) {
-            clearInterval(carouselInterval);
-            console.log('Carousel paused');
-        }
-    });
-    
-    container.addEventListener('mouseleave', () => {
-        if (!isMobile) {
-            startCarousel();
-        }
-    });
-
-    window.addEventListener('resize', () => {
-        updateLayout();
-        startCarousel();
-    });
-
-    updateLayout(); // Initial layout setup
-    startCarousel(); // Start the carousel
-});
-    // Hamburger menu code
-    
-    
-
-    
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-    const body = document.body;
-
-    function toggleMenu() {
-        nav.classList.toggle('active');
-        hamburger.classList.toggle('active');
-        body.classList.toggle('menu-active');
-    }
-
-    function closeMenu() {
-        nav.classList.remove('active');
-        hamburger.classList.remove('active');
-        body.classList.remove('menu-active');
-    }
-
-    hamburger.addEventListener('click', toggleMenu);
-
-    nav.addEventListener('click', function(event) {
-        if (event.target.tagName === 'A') {
-            closeMenu();
-        }
-    });
-
-    document.addEventListener('click', function(event) {
-        const isClickInside = nav.contains(event.target) || hamburger.contains(event.target);
-        if (!isClickInside && nav.classList.contains('active')) {
-            closeMenu();
-        }
-    });
+    setInterval(showNextTestimonial, 3000);
 });
 </body>
 </html>
