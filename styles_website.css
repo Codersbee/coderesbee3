@@ -566,6 +566,7 @@ nav ul li:hover .dropdown-content {
     nav.active {
         
        /* display: block; */
+        right:0;
     }
 
     nav ul {
@@ -605,6 +606,14 @@ nav ul li:hover .dropdown-content {
         margin-left:0;
         margin-top:20px;
     }
+    .dropdown-content{
+        position:static;
+        display:none;
+        box-shadow:none;
+    }
+    nan ul li:hover .dropdown-content
+    {
+        display:block;
 
     .hero {
         flex-direction: column;
