@@ -171,28 +171,37 @@
   </div>
 </div>
 <script>
-      alert('JavaScript is running!');
+      
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded event fired');
-    
+    const container = document.querySelector('.testimonials-container');
     const wrapper = document.querySelector('.testimonials-wrapper');
     const cards = document.querySelectorAll('.testimonial-card');
     
-    console.log('Wrapper:', wrapper);
-    console.log('Cards:', cards);
-    
     let currentIndex = 0;
     const totalCards = cards.length;
+    
+    function updateLayout() {
+        const isMobile = window.innerWidth <= 768;
+        wrapper.style.width = `${totalCards * 100}%`;
+        cards.forEach(card => {
+            card.style.width = `${100 / totalCards}%`;
+        });
+    }
 
     function showNextTestimonial() {
         currentIndex = (currentIndex + 1) % totalCards;
-        const transform = `translateX(-${currentIndex * 100}%)`;
-        console.log('Applying transform:', transform);
-        wrapper.style.transform = transform;
+        const movePercent = (100 / totalCards) * currentIndex;
+        wrapper.style.transform = `translateX(-${movePercent}%)`;
+        console.log('Moving to index:', currentIndex, 'Transform:', `translateX(-${movePercent}%)`);
     }
     
-    console.log('Setting up interval');
-    setInterval(showNextTestimonial, 3000);
+    function startCarousel() {
+        setInterval(showNextTestimonial, 3000);
+    }
+    
+    window.addEventListener('resize', updateLayout);
+    updateLayout();
+    startCarousel();
 });
     // Hamburger menu code
 
