@@ -178,12 +178,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentIndex = 0;
     const totalCards = cards.length;
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const carouselSpeed = isMobile ? 1200 : 3000;
+    let isMobile = window.matchMedia("(max-width: 768px)").matches;
+    let carouselSpeed = isMobile ? 1200 : 3000;
     
+    function updateLayout() {
+        isMobile = window.matchMedia("(max-width: 768px)").matches;
+        carouselSpeed = isMobile ? 1200 : 3000;
+        
+        if (isMobile) {
+            wrapper.style.width = `${totalCards * 100}%`;
+            cards.forEach(card => card.style.width = `${100 / totalCards}%`);
+        } else {
+            wrapper.style.width = '300%';
+            cards.forEach(card => card.style.width = '33.333%');
+        }
+    }
+
     function showNextTestimonial() {
         currentIndex = (currentIndex + 1) % totalCards;
-        wrapper.style.transform = `translateX(-${currentIndex * 33.333}%)`;
+        const movePercent = isMobile ? (100 / totalCards) : 33.333;
+        wrapper.style.transform = `translateX(-${currentIndex * movePercent}%)`;
     }
     
     let carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
@@ -195,6 +209,14 @@ document.addEventListener('DOMContentLoaded', function() {
     container.addEventListener('mouseleave', () => {
         if (!isMobile) carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
     });
+
+    window.addEventListener('resize', () => {
+        updateLayout();
+        clearInterval(carouselInterval);
+        carouselInterval = setInterval(showNextTestimonial, carouselSpeed);
+    });
+
+    updateLayout(); // Initial layout setup
 });
     // Hamburger menu code
     
