@@ -565,19 +565,21 @@ nav ul li:hover .dropdown-content {
 
     nav.active {
         
-        display: block;
+       /* display: block; */
     }
 
     nav ul {
         flex-direction: column;
         align-items: center;
-        padding: 20px 0;
+        padding: 0;
+        width:100%;
     }
 
     nav ul li {
         margin: 10px 0;
         width: 100%;
         text-align: center;
+        padding:10px;
     }
 
     .dropdown-content {
@@ -595,11 +597,13 @@ nav ul li:hover .dropdown-content {
         position: fixed;
         top: 15px;
         right: 15px;
-        z-index: 1001;
+        z-index: 1000;
     }
 
     .btn-trial {
-        display: none;
+/*         display: none; */
+        margin-left:0;
+        margin-top:20px;
     }
 
     .hero {
